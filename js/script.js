@@ -1,7 +1,9 @@
 (function breathApp() {
 
     function meditation() {
-        const music = new Audio('sound/music.mp3');
+        const waterDrop = new Audio('sound/water-drop.mp3'),
+            music = new Audio('sound/music.mp3'),
+            deepBreathAndHold = new Audio('sound/deep-breath-and-hold.m4a');
 
         const appWrap = document.querySelector('.breath'),
             meditation = document.querySelector('.meditation');
@@ -26,6 +28,7 @@
                 sec += 1;
                 secWrap.textContent = sec <= 9 ? '0' + sec : sec;
             }
+            0
 
         }, 1000)
 
@@ -33,8 +36,12 @@
             if (numOfClick === 0) {
                 numOfClick += 1;
                 clearInterval(watch);
-                music.pause();
-                music.currentTime = 0;
+                deepBreathAndHold.play();
+                setTimeout(function () {
+                    music.pause();
+                    music.currentTime = 0;
+                    waterDrop.play();
+                }, 15000)
             } else if (numOfClick === 1) {
                 min = 0;
                 minWrap.textContent = '00';
