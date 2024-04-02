@@ -17,14 +17,14 @@
             sec = 0;
 
         let watch = setInterval(function () {
-            if (sec === 60) {
+            if (sec === 59) {
                 min += 1;
-                minWrap.textContent = min;
+                minWrap.textContent = '0' + min;
                 sec = 0;
-                secWrap.textContent = sec;
+                secWrap.textContent = '00';
             } else {
                 sec += 1;
-                secWrap.textContent = sec;
+                secWrap.textContent = sec <= 9 ? '0' + sec : sec;
             }
 
         }, 1000)
@@ -37,9 +37,9 @@
                 music.currentTime = 0;
             } else if (numOfClick === 1) {
                 min = 0;
-                minWrap.textContent = min;
+                minWrap.textContent = '00';
                 sec = 0;
-                secWrap.textContent = sec;
+                secWrap.textContent = '00';
                 numOfClick = 0;
                 appWrap.classList.remove('hide')
             }
